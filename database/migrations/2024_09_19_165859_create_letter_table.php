@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('letter_no');
             $table->date('letter_date');
             $table->string('subject');
+            $table->string('dispatch_no');
+            $table->date('dispatch_date');
             $table->integer('sender_id');
             $table->integer('addressee_id');
             $table->integer('tracking_id')->comment('refer to user id or section_id');
