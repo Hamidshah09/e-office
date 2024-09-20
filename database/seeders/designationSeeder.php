@@ -18,11 +18,19 @@ class designationSeeder extends Seeder
         ],[
             'designation'=>'Deputy Commissioner, ICT',
         ],[
-            'designation'=>'Assistant Commissioner (Saddar), ICT',
+            'designation'=>'Addl. Deputy Commissioner (G), ICT',
+        ],[
+            'designation'=>'Addl. Deputy Commissioner (East), ICT',
         ],[
             'designation'=>'Assistant Commissioner (Potohar), ICT',
         ],[
             'designation'=>'Assistant Commissioner (Sectt.), ICT',
+        ],[
+            'designation'=>'Assistant Commissioner (Potohar), ICT',
+        ],[
+            'designation'=>'Assistant Commissioner (Rural), ICT',
+        ],[
+            'designation'=>'Assistant Commissioner (City), ICT',
         ],[
             'designation'=>'Assistant Commissioner (Potohar), ICT',
         ]]);
