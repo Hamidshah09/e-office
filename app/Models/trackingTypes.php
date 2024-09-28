@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class designations extends Model
+class trackingTypes extends Model
 {
     use HasFactory;
     protected $guarded=[];

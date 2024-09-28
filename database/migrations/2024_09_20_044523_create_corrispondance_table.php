@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('senders', function (Blueprint $table) {
+        Schema::create('corrispondences', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sender_name');
-            $table->string('sender_designation');
-            $table->string('sender_address');
+            $table->string('file_no')->unique();
+            $table->integer('section_id');
+            $table->integer('created_by');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sender');
+        Schema::dropIfExists('corrispondance');
     }
 };

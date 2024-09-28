@@ -9,5 +9,6 @@ class addressee extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    public $guarded = [];
 
 }

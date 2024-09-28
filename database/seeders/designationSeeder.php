@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\designations;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class designationSeeder extends Seeder
 {
@@ -13,14 +14,16 @@ class designationSeeder extends Seeder
      */
     public function run(): void
     {
-        designations::create([[
+        DB::table('designations')->insert([[
             'designation'=>'Chief Commissioner, ICT',
         ],[
             'designation'=>'Deputy Commissioner, ICT',
         ],[
             'designation'=>'Addl. Deputy Commissioner (G), ICT',
         ],[
-            'designation'=>'Addl. Deputy Commissioner (East), ICT',
+            'designation'=>'Addl. Deputy Commissioner (E), ICT',
+        ],[
+            'designation'=>'Addl. Deputy Commissioner (R), ICT',
         ],[
             'designation'=>'Assistant Commissioner (Potohar), ICT',
         ],[

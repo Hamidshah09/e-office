@@ -1,0 +1,55 @@
+/**
+ * 
+ * Style Sheet for all applications
+ * 
+ */ 
+
+
+
+.form-control {
+    border-radius: 9px !important;
+}
+.form-group label
+{
+font-weight:500 !important;
+}
+  .help-block {
+    color: red;
+  }
+.dec-last label
+{
+width: 100%;
+}
+.ibox .heading-tab
+{
+    background-color: #deebf8;
+    padding: 12px;
+    border-left: 4px solid #34495f;
+    border-radius: 5px;
+}
+
+.ibox .heading-tab.proff
+{
+background-color: #eeffbaf2 !important;
+border-left: 4px solid #85a226 !important;
+}
+.ibox .heading-tab.cont
+{
+background-color: #b9dcf1 !important;
+border-left: 4px solid #16aaff !important;
+}
+.ibox .heading-tab.fam
+{
+background-color: #abf5cf !important;
+border-left: 4px solid #3ac47d !important;
+}
+.ibox .heading-tab.app
+{
+background-color: #e3caec !important;
+border-left: 4px solid #633e71 !important;
+}
+.ibox .heading-tab.upl
+{
+background-color: #eee !important;
+border-left: 4px solid #444054 !important;
+}
