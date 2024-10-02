@@ -20,10 +20,9 @@ return new class extends Migration
             $table->date('dispatch_date');
             $table->integer('sender_id');
             $table->integer('addressee_id');
-            $table->integer('tracking_id')->comment('refer to user id or section_id');
-            $table->integer('track_type_id');
-            $table->integer('c_id')->comment('Correspondince id');
-            $table->timestamps();
+            $table->integer('c_id')->comment('Correspondince id')->nullable();
+            $table->string('remarks')->nullable();
+            $table->string('scan_path')->nullable();
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('letter');
+        Schema::dropIfExists('letters');
     }
 };

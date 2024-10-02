@@ -38,7 +38,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="{{route('lettersgrid')}}">Letters</a></li>
-          <li><a href="">New Letter</a></li>
+          <li><a href="{{route('lettercreate')}}">New Letter</a></li>
           <li><a href="#">Forward Letter</a></li>
           <li><a href="#">Box Icons</a></li>
         </ul>
@@ -60,6 +60,23 @@
       </li>
       <li>
         <div class="icon-link">
+          <a href="{{route('users.index')}}">
+            {{-- <i class='bx bx-plug' ></i> --}}
+            <i class='bx bx-user'></i>
+            <span class="link_name">Users</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{{route('users.index')}}">Users</a></li>
+          <li><a href="{{route('users.index')}}">Users Grid</a></li>
+          <li><a href="{{route('users.create')}}">Add Users</a></li>
+          <li><a href="{{route('roles.index')}}">Roles Gird</a></li>
+          <li><a href="{{route('roles.create')}}">Add Role</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
           <a href="{{route('officersGrid')}}">
             {{-- <i class='bx bx-plug' ></i> --}}
             <i class='bx bxs-user-rectangle'></i>
@@ -75,7 +92,6 @@
       <li>
         <div class="icon-link">
           <a href="{{route('section.index')}}">
-            {{-- <i class='bx bx-plug' ></i> --}}
             <i class='bx bx-buildings'></i>
             <span class="link_name">Sections</span>
           </a>
@@ -86,16 +102,31 @@
           <li><a href="{{route('section.create')}}">Add Section</a></li>
         </ul>
       </li>
-    <div class="profile-details">
+      <hr style="color: white">
+      <li>
+        <div class="icon-link">
+          <a href="{{route('section.index')}}">
+            <i class='bx bxs-user-circle'></i>
+            <span class="link_name">Profile</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{{route('section.index')}}">Profile</a></li>
+          <li><a href="{{route('logout')}}">Logout</a></li>
+        </ul>
+      </li>
+    {{-- <div class="profile-details">
+      <i class='bx bx-download' ></i>
       <div class="profile-content">
-        <img src="image/profile.jpg" alt="profileImg">
+        
       </div>
       <div class="name-job">
         <div class="profile_name">Prem Shahi</div>
         <div class="job">Web Desginer</div>
       </div>
       <i class='bx bx-log-out' ></i>
-    </div>
+    </div> --}}
   </li>
 </ul>
 </div>

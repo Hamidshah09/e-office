@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\roles;
+use App\Models\tracking_statuses;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,6 +25,14 @@ class DatabaseSeeder extends Seeder
             sectionSedder::class,
             designationSeeder::class,
             trackingtypeSeeder::class,
+        ]);
+        tracking_statuses::create([
+            ['tracking_status'=>'Pending'],
+            ['tracking_status'=>'Received']
+        ]);
+        roles::create([
+            ['role'=>'Admin'],
+            ['role'=>'Operator'],
         ]);
     }
 }

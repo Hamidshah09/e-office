@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('statuses', function (Blueprint $table) {
+        Schema::create('tracking_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status');
+            $table->string('tracking_status');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('statuses');
+        Schema::dropIfExists('tracking_statuses');
     }
 };

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -176,24 +175,32 @@
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <form action="">
+        <form action="{{route('loginmatch')}}" id="loginform" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="">User Name</label>
-                <input class="form-control" type="text" required>
+                <input class="form-control" type="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="">Password</label>
-                <input class="form-control" type="password" required>
+                <input class="form-control" type="password" name="password" required>
             </div>
-            <a href="">
+            {{-- <button type="submit" >Submit</button> --}}
+            <a href="#" id="submitLink">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>Submit
             </a>
+
         </form>
     </div>
-
+<script>
+     document.getElementById('submitLink').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            document.getElementById('loginform').submit(); // Submit the form
+        });
+</script>
 </body>
 
 </html>

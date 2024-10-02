@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Domicile App </title>
+    <title> E-Office </title>
     <link rel="stylesheet" href="{{ URL::asset('css/style.css'); }}">
     <link rel="stylesheet" href="{{ URL::asset('css/custom-searchbox.css'); }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
