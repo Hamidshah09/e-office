@@ -44,9 +44,30 @@
               </select>
         </div>
       </div>
+    </div>
+    <div class="row my-3">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label class="form-label" for="">P.A to Officer </label>
+          <select name="user_id" id="" class="form-control">
+            <option value="" selected="selected">Select User</option>  
+            @foreach ($users as $user)
+              @if($user->id==$officer->user_id)
+              <option value="{{$user->id}}" selected>{{$user->name}}</option>
+                @else
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endif        
+            @endforeach
+          </select>
+        </div>
+      </div>  
+    </div>
+    <div class="row">
       <div class="col-sm-4 my-3">
         <button type="submit" class="btn btn-primary">Update</button>  
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-4 my-3">
         @if ($errors->any())
             <div class="card-footer text-body-secondary">
@@ -60,8 +81,6 @@
             </div>
         @endif
       </div>
-        
-        
     </div>
   </form>
 </div>

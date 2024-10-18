@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\markingtypes;
 use App\Models\roles;
 use App\Models\tracking_statuses;
 use App\Models\User;
@@ -28,11 +29,18 @@ class DatabaseSeeder extends Seeder
         ]);
         tracking_statuses::create([
             ['tracking_status'=>'Pending'],
-            ['tracking_status'=>'Received']
+            ['tracking_status'=>'Received'],
+            ['tracking_status'=>'Returned'],
         ]);
         roles::create([
             ['role'=>'Admin'],
             ['role'=>'Operator'],
         ]);
+        markingtypes::create([
+            'markingtype'=>'officer',
+            'markingtype'=>'section',
+
+        ]);
+        
     }
 }

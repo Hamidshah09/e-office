@@ -120,4 +120,5 @@
         @endif
   </div>
   <script>var officers = @json($officers);</script>
+  <script src="{{ URL::asset('js/custom-searchbox.js'); }} "></script>
 @endsection

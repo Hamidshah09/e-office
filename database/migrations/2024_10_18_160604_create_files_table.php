@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('addressees', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('addressee_name');
-            $table->integer('designation_id');
-            $table->integer('status');
-            $table->integer('user_id')->comment('This refer to PA/user of Officer');
+        Schema::create('files', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('file_no')->unique();
+            $table->integer('author_id')->commment('Refers to user who create the file');
+            $table->string('subject');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('addressees');
+        Schema::dropIfExists('files');
     }
 };

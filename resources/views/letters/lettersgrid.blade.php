@@ -6,7 +6,8 @@
       <div class="alert alert-success">
         {{session('status')}}    
       </div>
-    @endif      
+    @endif
+    
     <form action="{{route('lettersgrid')}}" method="GET">
         <div class="row">
             <div class="col-sm-3">
@@ -32,6 +33,7 @@
         </div>
     
     </form>
+    
     <table class="table table-bordered table-striped my-3">
         <thead class="thead-dark">
           <tr>
@@ -54,8 +56,8 @@
             <td>{{$letter->dispatch_no}}</td>
             <td>{{$letter->dispatch_date}}</td>
             <td>{{$letter->subject}}</td>
-            <td>{{$letter->designations}}</td>
-            <td><a class="btn btn-primary" href="{{route('letteredit', $letter->id)}}">Edit</a></td>
+            <td>{{$letter->designation}}</td>
+            <td><a href="{{route('letteredit', $letter->id)}}"><i class='bx bxs-edit'></i></a></td>
           </tr>
           @endforeach
         </tbody>
@@ -72,5 +74,4 @@
             </div>
         @endif
   </div>
-
 @endsection

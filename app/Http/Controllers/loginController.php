@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,10 @@ class loginController extends Controller
         return view('login.login');
     }
     public function dashboard(){
-        return view('dashboard');
+        $user = User::where('id', '=', Auth::id())
+                        ->get(['name', 'id']);
+        $user =  $user[0];                       
+        return view('dashboard', compact('user'));
     }
     public function loginmatch(Request $request){
         $credential = $request->validate([

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('addressees', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('addressee_name');
-            $table->integer('designation_id');
-            $table->integer('status');
-            $table->integer('user_id')->comment('This refer to PA/user of Officer');
+        Schema::create('tracking_statuses', function (Blueprint $table) {
+            $table->increaments('id');
+            $table->string('tracking_status');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('addressees');
+        Schema::dropIfExists('tracking_statuses');
     }
 };

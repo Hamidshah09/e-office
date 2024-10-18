@@ -5,7 +5,7 @@
     </div>
     <ul class="nav-links">
       <li>
-        <a href="#">
+        <a href="{{route('dashboard')}}">
           <i class='bx bx-grid-alt' ></i>
           <span class="link_name">Dashboard</span>
         </a>
@@ -53,8 +53,10 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Tracking</a></li>
-          <li><a href="#">New Letter</a></li>
-          <li><a href="#">Forward Letter</a></li>
+          <li><a href="{{route('inbox')}}">Inbox</a></li>
+          <li><a href="{{route('outbox')}}">Outbox</a></li>
+          <li><a href="{{route('sending')}}">Ready for Sending</a></li>
+          <li><a href="{{route('sentitems')}}">Sent Letters</a></li>
           
         </ul>
       </li>
@@ -100,6 +102,19 @@
         <ul class="sub-menu">
           <li><a class="link_name" href="{{route('section.index')}}">Sections</a></li>
           <li><a href="{{route('section.create')}}">Add Section</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="icon-link">
+          <a href="{{route('files.index')}}">
+            <i class='bx bx-folder-open'></i>
+            <span class="link_name">Files</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="{{route('files.index')}}">Files</a></li>
+          <li><a href="{{route('files.create')}}">Add File</a></li>
         </ul>
       </li>
       <hr style="color: white">

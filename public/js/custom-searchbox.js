@@ -1,15 +1,13 @@
 let officers_obj = {};
 for (let x in officers) {
     // console.log();
-    officers_obj[officers[x]["addressee_name"]] = officers[x]["designation_id"];
+    officers_obj[officers[x]["addressee_name"]] = officers[x]["designation"];
     var newElement = document.createElement("a");
     newElement.classList.add("searched-values");
     var newText = document.createTextNode(officers[x]["addressee_name"]);
     newElement.appendChild(newText);
     document.getElementById("myDropdown").appendChild(newElement);
 }
-officer_names = Object.keys(officers_obj);
-officer_desig = Object.values(officers_obj);
 
 document.getElementById("myInput").addEventListener("blur", () => {
     delay_removeclass();
@@ -32,20 +30,28 @@ var links = document.getElementsByClassName("searched-values");
 var designation_select = document.getElementById("designation_id");
 
 designation_select.addEventListener("input", (event) => {
-    console.log(designation_select.value);
-    for (var i = 0; i < officer_names.length; i++) {
-        if (designation_select.value == officer_desig[i]) {
-            document.getElementById("myInput").value = officer_names[i];
+    for (let x in officers) {
+        console.log(designation_select.value, officers[x]["id"]);
+        if (designation_select.value == officers[x]["id"]) {
+            document.getElementById("myInput").value =
+                officers[x]["addressee_name"];
             break;
         }
     }
 });
-
+function officer_id(name) {
+    for (let x in officers) {
+        if (name == officers[x]["addressee_name"]) {
+            return officers[x]["id"];
+        }
+    }
+}
 for (var i = 0; i < links.length; i++) {
     links[i].addEventListener("click", function (event) {
         event.preventDefault(); // Prevent the default action
         document.getElementById("myInput").value = this.innerText;
-        designation_select.value = officers_obj[this.innerText];
+        designation_select.value = officer_id(this.innerText);
+        // console.log(officer_id(this.innerText));
 
         delay_removeclass();
     });

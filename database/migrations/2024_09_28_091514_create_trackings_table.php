@@ -15,11 +15,11 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('letter_id');
             $table->integer('marked_to')->comment('its an officer id or section id depanding on next column value');
-            $table->integer('marking_type_id')->comment('it refer to where letter market to it could be eaither section or officer');
-            $table->integer('received_by');
-            $table->integer('send_to');
+            $table->integer('send_by');
+            $table->timestamp('sent_on');
+            $table->integer('sent_to');
+            $table->timestamp('received_on');
             $table->integer('tracking_status_id')->comment('tracing status');
-            $table->timestamps();
         });
     }
 

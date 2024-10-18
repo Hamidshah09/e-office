@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\addressee;
 use App\Models\designations;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OfficerController extends Controller
@@ -18,7 +19,8 @@ class OfficerController extends Controller
     }
     public function newofficer(){
         $designations = designations::all();
-        return view('officer.newofficer', compact('designations'));
+        $users = User::get(['id', 'name']);
+        return view('officer.newofficer', compact('designations', 'users'));
 
     }
 
@@ -27,15 +29,9 @@ class OfficerController extends Controller
             'addressee_name'=>'required|min:5',
             'designation_id'=>'required|numeric',
             'status_id'=>'required|numeric',
+            'user_id'=>'required|numeric',
         ]);
-        $result = addressee::create($data);
-        if ($result){
-            $msg='New Officer Successfully Added';
-            $type='Success';
-        }else{
-            $msg='There were some error';
-            $type='danger';
-        }
+        addressee::create($data);
         return redirect()->route('officersGrid')->with('status', 'New Applicant added successfully Added');
 
     }
@@ -60,7 +56,8 @@ class OfficerController extends Controller
         $officers = addressee::where($colmn, 'Like', "%{$request->search}%")
                                 ->join('designations', 'designations.id', '=', 'addressees.designation_id')
                                 ->join('statuses', 'statuses.id', '=', 'addressees.status_id')
-                                ->get(['addressees.id', 'addressees.addressee_name', 'designations.designation','statuses.status']);
+                                ->join('users', 'users.id', '=', 'addressees.user_id')
+                                ->get(['addressees.id', 'addressees.addressee_name', 'designations.designation','statuses.status', 'users.name']);
         return view('officer.officersgrid', compact('officers', 'designations'));
 
     }
@@ -70,7 +67,8 @@ class OfficerController extends Controller
         // ]);
         $designations = designations::all();
         $officer = addressee::findorfail($id);
-        return view('officer.editofficer', compact(['officer', 'designations']));
+        $users=User::get(['id', 'name']);
+        return view('officer.editofficer', compact(['officer', 'designations', 'users']));
     }
 
     public function updateofficer(Request $request, string $id){
@@ -78,13 +76,15 @@ class OfficerController extends Controller
             'addressee_name'=>'required|min:5',
             'designation_id'=>'required|numeric',
             'status_id'=>'required|numeric',
+            'user_id'=>'required|numeric',
         ]);
         
         addressee::where('id',$id)
                     ->update([
                         'addressee_name'=>$request->addressee_name,
-            'designation_id'=>$request->designation_id,
-            'status_id'=>$request->status_id,
+                        'designation_id'=>$request->designation_id,
+                        'status_id'=>$request->status_id,
+                        'user_id'=>$request->user_id,
         ]);
         
         return redirect()->route('officersGrid')->with('status', 'Officer Updated Successfully Added');

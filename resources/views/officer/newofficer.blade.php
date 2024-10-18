@@ -33,12 +33,27 @@
               </select>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 my-3">
+        <div class="form-group">
+          <label class="form-label" for="">PA to Officer </label>
+          <select name="user_id" id="" class="form-control">
+            @foreach ($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>    
+            @endforeach
+          </select>
+        </div>
+      </div>
+    </div>  
+    <div class="row">
       <div class="col-sm-4 my-3">
         <button type="submit" class="btn btn-primary">Save</button>  
       </div>
-        
-        
     </div>
+        
+        
+    
   </form>
 </div>
 @endsection

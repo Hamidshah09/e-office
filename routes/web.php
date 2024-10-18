@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\FilesController;
 use App\Http\Controllers\letterController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\OfficerController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\sectionsController;
+use App\Http\Controllers\testController;
+use App\Http\Controllers\trackingController;
 use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
@@ -31,6 +34,16 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/letters/{id}',  'update')->name('letterupdate');
         
     });
+    Route::controller(trackingController::class)->group(function(){
+        Route::get('/inbox',  'inbox')->name('inbox');
+        Route::get('/outbox',  'outbox')->name('outbox');
+        Route::post('/outbox/update',  'receive')->name('receive');
+        Route::get('/sending',  'sending')->name('sending');
+        Route::get('/sentitems',  'sentitems')->name('sentitems');
+        Route::post('/sentitems/update',  'recall')->name('recall');
+        Route::post('/inbox/update',  'inboxupdate')->name('inboxupdate');
+        Route::post('/sending/update',  'send_concerned')->name('send_concerned');
+    });
 
     Route::get('/officers', [OfficerController::class, 'index'])->name('officersGrid')->middleware(['auth']);
     Route::get('/officers/newofficer', [OfficerController::class, 'newofficer'])->name('newofficer');
@@ -40,4 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/officers/search', [OfficerController::class, 'search'])->name('officerssearch');
 
     Route::resource('/section', sectionsController::class)->only(['index', 'show','create' ,'store','edit', 'update']);;
+    Route::resource('/files', FilesController::class)->only(['index', 'show','create' ,'store','edit', 'update']);;
 });
+Route::get('/test', [testController::class, 'index']);
+Route::post('/test/update', [testController::class, 'update'])->name('save');

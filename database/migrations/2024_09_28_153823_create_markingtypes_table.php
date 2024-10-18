@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tracking_statuses', function (Blueprint $table) {
+        Schema::create('markingtypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tracking_status');
+            $table->string('marking_type');
         });
     }
 
